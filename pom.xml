@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) ${year} Marvin Herman Froeder (marvin@marvinformatics.com)
+    Copyright (C) 2018 Marvin Herman Froeder (marvin@marvinformatics.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -225,9 +225,9 @@
     </plugins>
   </build>
 
-  <url>https://github.com/${owner}/${name}/</url>
+  <url>https://github.com/velo/elastic-scroll-stream/</url>
 
-  <inceptionYear>${year}</inceptionYear>
+  <inceptionYear>2018</inceptionYear>
 
   <licenses>
     <license>
@@ -247,9 +247,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:${owner}/${name}.git</connection>
-    <developerConnection>scm:git:git@github.com:${owner}/${name}.git</developerConnection>
-    <url>https://github.com/${owner}/${name}/</url>
+    <connection>scm:git:git@github.com:velo/elastic-scroll-stream.git</connection>
+    <developerConnection>scm:git:git@github.com:velo/elastic-scroll-stream.git</developerConnection>
+    <url>https://github.com/velo/elastic-scroll-stream/</url>
   </scm>
 
   <distributionManagement>
