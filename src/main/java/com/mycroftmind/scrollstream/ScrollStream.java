@@ -1,3 +1,18 @@
+/**
+ * Copyright (C) ${year} Marvin Herman Froeder (marvin@marvinformatics.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.mycroftmind.scrollstream;
 
 import org.elasticsearch.action.ListenableActionFuture;
@@ -26,16 +41,15 @@ public class ScrollStream {
     private static final int PAGE_SIZE = 1000;
 
     public static Stream<SearchHit> create(final SearchRequestBuilder searchRequestBuilder,
-                                           final Client client) {
+            final Client client) {
         final SearchResponse response = searchRequestBuilder
                 .setScroll(SCROLL_KEEP_ALIVE)
                 .setSize(PAGE_SIZE)
                 .execute().actionGet();
 
-        final Spliterator<SearchHit> spliterator =
-                new ElasticsearchScrollSpliterator(new ScrollCharacteristics(client,
-                                                                             response.getHits().getTotalHits()),
-                                                   response);
+        final Spliterator<SearchHit> spliterator = new ElasticsearchScrollSpliterator(new ScrollCharacteristics(client,
+                response.getHits().getTotalHits()),
+                response);
         return StreamSupport.stream(spliterator, false);
     }
 
@@ -50,7 +64,7 @@ public class ScrollStream {
         private AtomicInteger origin = new AtomicInteger(0);
 
         private ElasticsearchScrollSpliterator(final ScrollCharacteristics chars,
-                                               final SearchResponse searchResponse) {
+                final SearchResponse searchResponse) {
             this.chars = chars;
             this.searchResponse = searchResponse;
             this.setUpNewPage(this.searchResponse.getHits());
@@ -114,7 +128,7 @@ public class ScrollStream {
         final long totalHits;
 
         ScrollCharacteristics(final Client client,
-                              long totalHits) {
+                long totalHits) {
             this.client = client;
             this.totalHits = totalHits;
         }
