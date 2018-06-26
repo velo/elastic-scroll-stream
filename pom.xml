@@ -23,6 +23,9 @@
   <artifactId>elastic-scroll-stream</artifactId>
   <version>0.1-SNAPSHOT</version>
 
+  <name>elastic-scroll-stream</name>
+  <description>This repository is just a small implementation of the Elasticsearch Scroll API as Java8 Stream</description>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
